@@ -1,5 +1,5 @@
 import React from 'react';
-import './Signup.css';
+import './SignUp.css';
 import medex from '../assets/MedEx.jpeg'
 import {useNavigate} from 'react-router-dom'
 
