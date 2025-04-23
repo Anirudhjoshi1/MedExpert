@@ -1,17 +1,23 @@
 import React from 'react';
-import './Login.css'; // Make sure to create this CSS file
-import medex from '../assets/MedEx.jpeg'
-import {useNavigate} from 'react-router-dom'
+import './Login.css';
+import medex from '../assets/MedEx.jpeg';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
+  const navigate = useNavigate();
 
-  const navigate = useNavigate()
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // You can add logic here to check credentials if needed
+    navigate('/home');
+  };
+
   return (
     <div className="login-container">
       <div className="login-box">
         <div className="Login-logo">
-          <img src={medex} alt="" className='login-logo-img' />
-          </div>
+          <img src={medex} alt="MedEx Logo" className="login-logo-img" />
+        </div>
         <h2 className="login-title">Welcome back</h2>
         <p className="login-subtitle">
           Glad to see you again 👋 <br />
@@ -27,20 +33,25 @@ const Login = () => {
           Continue with Google
         </button>
 
-        <div className="form-group">
-          <label>Email</label>
-          <input type="email" placeholder="enter email..." />
-        </div>
+        <form onSubmit={handleSubmit}>
+          <div className="form-group">
+            <label>Email</label>
+            <input type="email" name="email" placeholder="enter email..." required />
+          </div>
 
-        <div className="form-group">
-          <label>Password</label>
-          <input type="password" placeholder="enter password..." />
-        </div>
+          <div className="form-group">
+            <label>Password</label>
+            <input type="password" name="password" placeholder="enter password..." required />
+          </div>
 
-        <button className="login-btn" onClick={()=> navigate("/")}>Login</button>
+          <button type="submit" className="login-btn">Login</button>
+        </form>
 
         <p className="signup-text">
-          Don’t have an account? <a href="#" onClick={()=>navigate('/signup')}>Sign up for Free</a>
+          Don’t have an account?{' '}
+          <a href="#" onClick={() => navigate('/signup')}>
+            Sign up for Free
+          </a>
         </p>
       </div>
     </div>

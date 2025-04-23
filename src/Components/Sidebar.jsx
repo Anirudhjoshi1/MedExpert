@@ -25,7 +25,7 @@ const Sidebar = () => {
       <div className='menu--list'>
         <a
           className={`item ${isActive('/') ? 'active' : ''}`}
-          onClick={() => navigate('/')}
+          onClick={() => navigate('/home')}
         >
           <FaHome className='icon' />
           Home
