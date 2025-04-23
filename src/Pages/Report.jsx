@@ -3,9 +3,6 @@ import {
   BarChart, Bar, XAxis, YAxis, Tooltip, Legend, CartesianGrid, ResponsiveContainer,
 } from 'recharts';
 import '../styles/Report.css';
-import { TbReportAnalytics } from "react-icons/tb";
-import { FcSalesPerformance } from "react-icons/fc";
-import { GiTreeGrowth } from "react-icons/gi";
 import { FaUser } from "react-icons/fa";
 import Sidebar from '../Components/Sidebar';
 
