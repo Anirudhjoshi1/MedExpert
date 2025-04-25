@@ -142,37 +142,47 @@ const Product = () => {
         />
       )}
 
-      <div id="buttons-container">
-        <button
-          className="button-82-pushable"
-          role="button"
-          onClick={testSkill}
-        >
-          <span className="button-82-shadow"></span>
-          <span className="button-82-edge"></span>
-          <span className="button-82-front text">Test My Skill</span>
-        </button>
-        <button
-          className="button-82-pushable" role="button"
-          onClick={submitAnswer}
-          disabled={!submitEnabled}
-          style={{ display: inputVisible ? "inline-block" : "none" }}
-        >
-          <span className="button-82-shadow"></span>
-          <span className="button-82-edge"></span>
-          <span className="button-82-front text">Submit</span>
-        </button>
-        <button
-          className="button-82-pushable" role="button"
-          disabled={!newMedEnabled}
-          style={{ display: inputVisible ? "inline-block" : "none" }}
-          onClick={handleNewMedicine}
-        >
-          <span className="button-82-shadow"></span>
-          <span className="button-82-edge"></span>
-          <span className="button-82-front text">New Medicine</span>
-        </button>
-      </div>
+<div id="buttons-container">
+  {/* Show only Test My Skill button initially */}
+  {!submitEnabled && !newMedEnabled && (
+    <button
+      className="button-82-pushable"
+      role="button"
+      onClick={testSkill}
+    >
+      <span className="button-82-shadow"></span>
+      <span className="button-82-edge"></span>
+      <span className="button-82-front text">Test My Skill</span>
+    </button>
+  )}
+
+  {/* Show Submit button only when submitEnabled is true */}
+  {submitEnabled && (
+    <button
+      className="button-82-pushable"
+      role="button"
+      onClick={submitAnswer}
+    >
+      <span className="button-82-shadow"></span>
+      <span className="button-82-edge"></span>
+      <span className="button-82-front text">Submit</span>
+    </button>
+  )}
+
+  {/* Show New Medicine button only when newMedEnabled is true */}
+  {newMedEnabled && (
+    <button
+      className="button-82-pushable"
+      role="button"
+      onClick={handleNewMedicine}
+    >
+      <span className="button-82-shadow"></span>
+      <span className="button-82-edge"></span>
+      <span className="button-82-front text">New Medicine</span>
+    </button>
+  )}
+</div>
+
     </div>
     </div>
     </>
