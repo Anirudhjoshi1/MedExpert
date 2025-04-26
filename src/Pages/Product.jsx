@@ -139,6 +139,7 @@ const Product = () => {
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={handleEnterclick}
+          disabled={!submitEnabled}
         />
       )}
 
