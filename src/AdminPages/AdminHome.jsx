@@ -1,7 +1,9 @@
-import React from 'react'
-import AdminSidebar from '../Components/AdminSidebar'
-import '../styles/AdminHome.css'
+import React from 'react';
+import AdminSidebar from '../Components/AdminSidebar';
+import '../styles/AdminHome.css';
 import { IoIosNotifications } from "react-icons/io";
+import userImg from '../assets/user.jpg'; // move user.jpg into src/assets/
+import { useNavigate } from 'react-router';
 
 const AdminHome = () => {
   const clients = [
@@ -10,71 +12,121 @@ const AdminHome = () => {
     { id: '#003', name: 'Brooklyn Simmons', email: 'brooklyn@brightstar.com', phone: '4', signup: '2023-09-14', type: 'Regular', status: 'Unactive' },
     { id: '#004', name: 'Cameron Williamson', email: 'cameron@zenith.com', phone: '4', signup: '2023-09-12', type: 'Premium', status: 'Active' },
     { id: '#005', name: 'Esther Howard', email: 'esther@bastergo.com', phone: '4', signup: '2023-09-12', type: 'Premium', status: 'Active' },
-  ];
+  ]; 
 
+  const users = [{ Name:"Anurshiri Jain"} , 
+                 {Name:"Rajat Singh"},
+                 {Name:"Divya Joshi"},
+                 {Name:"Pankaj Sharma"},
+                 {Name:"Tanya Sharma"}];
+
+  const navigate = useNavigate();
 
   return (
     <>
     <div className='dashboard'>
         <AdminSidebar/>
-        <div className="admin-container">
-          <h2 className='admin-heading'>ADMIN DASHBOARD</h2>
-      <div className="overview-cards">
-        <div className="card">
-          <h3>Total Trainers</h3>
-          <p>5</p>
+        
+    <div className="admin-home">
+      {/* Header */}
+      <header className="dashboard-header">
+        <div className="menu-title">Dashboard</div>
+        <div className="search-user">
+          <input type="text" placeholder="Search here" />
+          <div className="user-info">
+            <img style={{width:"50px", cursor:"pointer"}} src={userImg} alt="User" />
+            <div>
+              <h4>Anirudh Joshi</h4>
+              <small>Admin</small>
+            </div>
+          </div>
         </div>
-        <div className="card">
-          <h3>Total Trainees</h3>
-          <p>20</p>
-        </div>
-        <div className="card">
-          <h3>Active Products</h3>
-          <p>5</p>
-        </div>
-        <div className="card">
-          <h3>Pending Evaluations</h3>
-          <p>3</p>
-        </div>
-      </div>
+      </header>
 
-      <div className="section">
-        <h2>Trainers Activity</h2>
-        <table className="custom-table">
-          <thead>
-            <tr>
-              <th>Trainer ID</th>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Assigned Trainees</th>
-              <th>Status</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {clients.map((client, index) => (
-              <tr key={index}>
-                <td>{client.id}</td>
-                <td>{client.name}</td>
-                <td>{client.email}</td>
-                <td>{client.phone}</td>
-         
-                <td><span className={`status ${client.status.toLowerCase()}`}>{client.status}</span></td>
-                <td>
-  
-                  <button className="delete-btn">Delete</button>
-                </td>
+      {/* Stats Summary */}
+      <section className="summary">
+        <div className="card highlight">
+          <h2>5+</h2>
+          <p>Trainers</p>
+        </div>
+        <div className="card highlight">
+          <h2>10+</h2>
+          <p>Projects</p>
+        </div>
+        <div className="card highlight">
+          <h2>20+</h2>
+          <p>Trainees</p>
+        </div>
+      </section>
+
+      {/* Main Content */}
+      <section className="dashboard-content">
+        {/* Recent Projects */}
+        <div className="projects">
+          <div className="section-header">
+            <h3>Assigned Trainer </h3>
+            <button onClick={()=>navigate("/admin/trainers")}>See all →</button>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th style={{fontSize:"18px"}}>Trainers</th>
+                <th style={{fontSize:"18px"}}>Product</th>
+                <th style={{fontSize:"18px"}}>Status</th>
               </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style={{fontWeight:"600", fontSize:"16px"}}>Aakash Singh</td>
+                <td>Medex</td>
+                <td><span className="status review"></span> review</td>
+              </tr>
+              <tr>
+                <td style={{fontWeight:"600", fontSize:"16px"}}>Satish Kumar</td>
+                <td>Medex</td>
+                <td><span className="status in-progress"></span> in progress</td>
+              </tr>
+              <tr>
+                <td style={{fontWeight:"600", fontSize:"16px"}}>Rohit Kapoor</td>
+                <td>Medex</td>
+                <td><span className="status pending"></span> pending</td>
+              </tr>
+              <tr>
+                <td style={{fontWeight:"600", fontSize:"16px"}}>Kamal Gupta</td>
+                <td>Medex</td>
+                <td><span className="status review"></span> review </td>
+              </tr>
+              <tr>
+                <td  style={{fontWeight:"600", fontSize:"16px"}}>Rohit Kapoor</td>
+                <td>Medex</td>
+                <td><span className="status in-progress"></span> in progress</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        {/* New Customers */}
+        <div className="customers">
+          <div className="section-header">
+            <h3>New  Trainees</h3>
+            <button onClick={()=>navigate("/admin/trainees")}>Manage →</button>
+          </div>
+          <ul>
+            {users.map((user, index) => (
+              <li key={index}>
+                <div style={{marginTop:"20px"}}>
+                  <h4>{user.Name}</h4>
+                </div>
+                <div className="icons" >✉️ 💬</div>
+              </li>
             ))}
-          </tbody>
-        </table>
-      </div>
-
-
+          </ul>
+        </div>
+      </section>
     </div>
     </div>
     </>
   )
 }
 
-export default AdminHome
+export default AdminHome;

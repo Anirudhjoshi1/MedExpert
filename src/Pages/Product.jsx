@@ -21,7 +21,7 @@ const Product = () => {
   };
 
   useEffect(() => {
-    setInputVisible(true);
+    setInputVisible(false);
     setSubmitEnabled(false);
     setNewMedEnabled(false);
   }, []);
@@ -132,6 +132,9 @@ const Product = () => {
         {isLoading && <div id="analyzingAnimation" className="animation"></div>}
       </div>
 
+
+      <div className="interaction-section">
+
       {inputVisible && (
         <textarea
           id="text-input"
@@ -182,6 +185,7 @@ const Product = () => {
       <span className="button-82-front text">New Medicine</span>
     </button>
   )}
+</div>
 </div>
 
     </div>

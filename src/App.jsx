@@ -11,12 +11,12 @@ import AdminHome from './AdminPages/AdminHome'
 import AdminTrainer from './AdminPages/AdminTrainer'
 import AdminTrainees from './AdminPages/AdminTrainees'
 import AdminReport from './AdminPages/AdminReport'
-import AdminAssigment from './AdminPages/AdminAssigment'
 import AdminSettings from './AdminPages/AdminSetting'
 import TrainerSettings from './TrainerPages/TrainerSettings'
 import TrainerReports from './TrainerPages/TrainerReports'
 import TrainerTrainees from './TrainerPages/TrainerTrainees'
 import TrainerHome from './TrainerPages/TrainerHome'
+import TraineePerformance from './TrainerPages/TraineePerformance'
 
 
 function App() {
@@ -38,15 +38,13 @@ function App() {
           <Route path='admin/home' element={<AdminHome/>}/>
           <Route path='admin/trainers' element={<AdminTrainer/>}/>
           <Route path='admin/trainees' element={<AdminTrainees/>}/>
-          <Route path='admin/assignment' element={<AdminAssigment/>}/>
           <Route path='admin/report' element={<AdminReport/>}/>
           <Route path='admin/setting' element={<AdminSettings/>}/>
-
-
           <Route path='trainer/home' element={<TrainerHome/>}/>
           <Route path='trainer/trainees' element={<TrainerTrainees/>}/>
           <Route path='trainer/report' element={<TrainerReports/>}/>
           <Route path='trainer/setting' element={<TrainerSettings/>}/>
+          <Route path="/trainer/product/:traineeId" element={<TraineePerformance />} />
 
 
 

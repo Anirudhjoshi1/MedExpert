@@ -1,6 +1,5 @@
 import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { BiBookAlt, BiSolidReport } from 'react-icons/bi';
 import { FaHome } from 'react-icons/fa';
 import { AiFillProduct } from 'react-icons/ai';
 import { IoSettings } from 'react-icons/io5';
@@ -47,13 +46,6 @@ const AdminSidebar = () => {
           Trainees
         </a>
 
-        <a
-          className={`item ${isActive('/report') ? 'active' : ''}`}
-          onClick={() => navigate('/admin/assignment')}
-        >
-          <BiSolidReport className='icon' />
-          Assignment
-        </a>
 
         <a
           className={`item ${isActive('/settings') ? 'active' : ''}`}
