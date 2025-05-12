@@ -38,6 +38,7 @@
     border-radius: 16px;
     padding: 30px;
     height: 360px;
+    min-height: 400px;
     resize: none;
     margin-bottom: 15px;
     transition: border-color 0.3s;
